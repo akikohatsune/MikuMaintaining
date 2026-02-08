@@ -1,4 +1,4 @@
-# Lua Sentinel
+# MikuMaintaining
 
 Miku keeps watch, stays light on resources, and does not miss a beat. This project is a security + health monitor for Linux servers: it watches auth logs, bans abusive IPs via `iptables`, and handles runaway processes with a graceful ramp from `SIGTERM` to `SIGKILL`. State persists across reboots so the guard does not forget.
 
@@ -157,7 +157,7 @@ Create a unit file for Sentinel (example):
 
 ```ini
 [Unit]
-Description=Lua Sentinel (Sentinel)
+Description=MikuMaintaining (Sentinel)
 After=network.target
 
 [Service]

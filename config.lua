@@ -1,4 +1,4 @@
--- Lua Sentinel configuration
+-- MikuMaintaining configuration
 -- Adjust paths/thresholds to your environment.
 
 return {
