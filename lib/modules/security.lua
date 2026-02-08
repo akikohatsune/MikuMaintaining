@@ -168,7 +168,7 @@ local function ban_ip(ip, duration, reason, state, config, ipt, logger, notifier
   local until_ts = 0
   if duration > 0 then until_ts = util.now() + duration end
 
-  state.banned[ip] = { until = until_ts, reason = reason, strikes = strikes or 1 }
+  state.banned[ip] = { ["until"] = until_ts, reason = reason, strikes = strikes or 1 }
   add_tag_list(state.banned[ip], tags)
   state.banned[ip].rule = rule_id or state.banned[ip].rule
   if tags then tag_ip(state, ip, tags) end
@@ -201,7 +201,7 @@ local function ban_subnet(cidr, duration, reason, state, config, ipt, logger, no
 
   local until_ts = 0
   if duration > 0 then until_ts = util.now() + duration end
-  state.subnet_banned[cidr] = { until = until_ts, reason = reason }
+  state.subnet_banned[cidr] = { ["until"] = until_ts, reason = reason }
   ipt.ban_subnet("LUA_SENTINEL", cidr)
   if logger then logger("INFO", "Banned subnet " .. cidr .. " reason=" .. reason) end
 
