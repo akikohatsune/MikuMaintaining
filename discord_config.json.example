@@ -1,0 +1,18 @@
+{
+  "token": "YOUR_DISCORD_BOT_TOKEN",
+  "channel_id": "YOUR_CHANNEL_ID",
+  "report_log_path": "/tmp/server_report.log",
+  "report_title": "Server Status Report (12h)",
+  "report_times": ["07:00", "19:00"],
+  "colors": {
+    "green": 3066993,
+    "yellow": 15844367,
+    "red": 15158332,
+    "black": 0
+  },
+  "panic": {
+    "auth_file": "/tmp/auth_code.tmp",
+    "confirm_window": 60,
+    "disable_cron_cmd": ""
+  }
+}

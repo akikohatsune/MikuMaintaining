@@ -1,5 +1,7 @@
 # Local overrides
 config.local.lua
+discord_config.json
+.env
 
 # State and runtime
 state.json
@@ -10,6 +12,8 @@ state.dat
 # Logs
 logs/
 *.log
+__pycache__/
+*.pyc
 
 # OS/editor
 .DS_Store

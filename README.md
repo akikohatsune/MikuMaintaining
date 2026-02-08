@@ -79,6 +79,22 @@ Commands:
 
 Panic mode can optionally disable cron via `config.discord.panic.disable_cron_cmd`.
 
+## Discord Bot (Python)
+If you only want Discord features, use the Python bot with `discord.py`:
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+cp discord_config.json.example discord_config.json
+python discord_bot.py
+```
+
+Commands:
+- `!status` -> instant status embed (yellow) with `top` snapshot and `ss` count.
+- `!terminated` -> generates confirm code and sends red warning.
+- `!confirm XXXX` -> if code matches within 60s, apply lockdown rules.
+
 ## Maintenance Service Checks
 Configure in `config.lua`:
 
