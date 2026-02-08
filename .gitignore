@@ -1,0 +1,17 @@
+# Local overrides
+config.local.lua
+
+# State and runtime
+state.json
+state.dat
+/tmp/
+*.tmp
+
+# Logs
+logs/
+*.log
+
+# OS/editor
+.DS_Store
+*.swp
+*.swo
