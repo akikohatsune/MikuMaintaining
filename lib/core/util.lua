@@ -59,9 +59,36 @@ function util.dirname(path)
   return dir
 end
 
-function util.command_exists(cmd)
-  local ok = os.execute("command -v " .. cmd .. " >/dev/null 2>&1")
+function util.is_executable(path)
+  if not path or path == "" then return false end
+  local ok = os.execute("test -x " .. util.shell_quote(path) .. " >/dev/null 2>&1")
   return ok == true or ok == 0
+end
+
+function util.which(cmd)
+  if not cmd or cmd == "" then return nil end
+  if cmd:find("/", 1, true) then
+    if util.is_executable(cmd) then return cmd end
+    return nil
+  end
+
+  local p = io.popen("command -v " .. util.shell_quote(cmd) .. " 2>/dev/null")
+  if p then
+    local out = util.trim(p:read("*a") or "")
+    p:close()
+    if out ~= "" then return out end
+  end
+
+  local extra = { "/sbin", "/usr/sbin", "/system/bin", "/system/xbin", "/vendor/bin" }
+  for _, dir in ipairs(extra) do
+    local path = dir .. "/" .. cmd
+    if util.is_executable(path) then return path end
+  end
+  return nil
+end
+
+function util.command_exists(cmd)
+  return util.which(cmd) ~= nil
 end
 
 local function to_int(s)
