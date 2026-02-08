@@ -1,4 +1,9 @@
-# MikuMaintaining
+<p align="center">
+  <img src="miku.jpg" alt="MikuMaintaining" width="500">
+</p>
+<p align="center"><span style="color:#8a8f98;">"If your IP shows up in my logs, it’s already too late."</span></p>
+
+<h1 align="center">MikuMaintaining</h1>
 
 Miku keeps watch, stays light on resources, and does not miss a beat. This project is a security + health monitor for Linux servers: it watches auth logs, bans abusive IPs via `iptables`, and handles runaway processes with a graceful ramp from `SIGTERM` to `SIGKILL`. State persists across reboots so the guard does not forget.
 
